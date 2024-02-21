@@ -5,6 +5,6 @@
 ## 与Loyalsoldier版 GeoIP 的区别
 
 - 中国大陆 IPv4 地址数据采用 [misakaio/chnroutes2](https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt)
-- 中国大陆 IPv6 地址数据采用 [苍狼山庄 IPV6](https://ispip.clang.cn/all_cn_ipv6.txt)
+- 中国大陆 IPv6 地址数据采用 [gaoyifan/china-operator-ip](https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china6.txt)
 
 ## 其他说明请参考原repo
