@@ -83,5 +83,7 @@ jobs:
           folder: ./publish
           exclude: |
             .git/
+            text/
             .actioninfo
+            *.sha256sum
             
