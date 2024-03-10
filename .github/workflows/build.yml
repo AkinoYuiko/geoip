@@ -47,7 +47,7 @@ jobs:
         run: |
           mkdir -p publish
           mv ./output/maxmind/*.mmdb ./output/maxmind/*.sha256sum ./publish/
-          cp -fpPR ./output/text ./publish
+          cp ./output/text/cn.txt ./publish/
 
       - name: Git push assets to "release" branch
         run: |
@@ -60,9 +60,6 @@ jobs:
           git commit -m "${{ env.RELEASE_NAME }}"
           git remote add geoip "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push -f -u geoip release
-
-      # - name: Remove some files to avoid publishing to GitHub release
-      #   run: rm -rf ./publish/*.{gz,zip} ./publish/text
 
       - name: Upload files to GitHub release
         uses: svenstaro/upload-release-action@v2
@@ -83,7 +80,6 @@ jobs:
           folder: ./publish
           exclude: |
             .git/
-            text/
             .actioninfo
             *.sha256sum
             
