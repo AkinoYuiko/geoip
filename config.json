@@ -1,36 +1,40 @@
 {
-  "input": [
-    {
-      "type": "text",
-      "action": "add",
-      "args": {
-        "name": "cn",
-        "uri": "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt",
-        "onlyIPType": "ipv4"
-      }
-    },
-    {
-      "type": "text",
-      "action": "add",
-      "args": {
-        "name": "cn",
-        "uri": "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china6.txt",
-        "onlyIPType": "ipv6"
-      }
-    }
-  ],
-  "output": [
-    {
-      "type": "maxmindMMDB",
-      "action": "output",
-      "args": {
-        "outputName": "Country.mmdb",
-        "wantedList": ["cn"]
-      }
-    },
-    {
-      "type": "text",
-      "action": "output"
-    }
-  ]
+	"input": [
+		{
+			"type": "text",
+			"action": "add",
+			"args": {
+				"name": "cn",
+				"uri": "https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt",
+				"onlyIPType": "ipv4"
+			}
+		},
+		{
+			"type": "text",
+			"action": "add",
+			"args": {
+				"name": "cn",
+				"uri": "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china6.txt",
+				"onlyIPType": "ipv6"
+			}
+		},
+		{
+			"type": "private",
+			"action": "add"
+		}
+	],
+	"output": [
+		{
+			"type": "maxmindMMDB",
+			"action": "output",
+			"args": {
+				"outputName": "Country.mmdb",
+				"wantedList": ["cn", "private"]
+			}
+		},
+		{
+			"type": "text",
+			"action": "output"
+		}
+	]
 }
