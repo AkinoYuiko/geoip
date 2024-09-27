@@ -69,7 +69,7 @@ jobs:
       #     tag: ${{ env.TAG_NAME }}
 
       - name: upload files to OSS
-        uses: fangbinwei/aliyun-oss-website-action@v1.4.0
+        uses: fangbinwei/aliyun-oss-website-action@v1.4.1
         with:
           accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
