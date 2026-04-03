@@ -5,7 +5,7 @@
 			"action": "add",
 			"args": {
 				"name": "cn",
-				"uri": "https://github.com/misakaio/chnroutes2/raw/refs/heads/master/chnroutes.txt",
+				"uri": "https://raw.githubusercontent.com/pmkol/easymosdns/refs/heads/rules/china_ip_list.txt",
 				"onlyIPType": "ipv4"
 			}
 		},
@@ -14,13 +14,9 @@
 			"action": "add",
 			"args": {
 				"name": "cn",
-				"uri": "https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china6.txt",
+				"uri": "https://raw.githubusercontent.com/pmkol/easymosdns/refs/heads/rules/china_ip_list.txt",
 				"onlyIPType": "ipv6"
 			}
-		},
-		{
-			"type": "private",
-			"action": "add"
 		}
 	],
 	"output": [
@@ -29,7 +25,7 @@
 			"action": "output",
 			"args": {
 				"outputName": "Country.mmdb",
-				"wantedList": ["cn", "private"]
+				"wantedList": ["cn"]
 			}
 		},
 		{
