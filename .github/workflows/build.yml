@@ -99,6 +99,6 @@ jobs:
           ossutil cp ./publish/ oss://glash/ \
             --recursive \
             --force \
-            --exclude ".git/*" \
-            --exclude ".actioninfo" \
+            --exclude ".*" \
+            --exclude "*/.*" \
             --exclude "*.sha256sum"
