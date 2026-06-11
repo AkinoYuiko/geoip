@@ -67,18 +67,21 @@ jobs:
       #     file_glob: true
       #     file: ./publish/*
       #     tag: ${{ env.TAG_NAME }}
+      - name: Install ossutil
+        run: |
+          curl -L https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil64 -o ossutil
+          chmod +x ossutil
+          sudo mv ossutil /usr/local/bin/ossutil
 
-      - name: upload files to OSS
-        uses: fangbinwei/aliyun-oss-website-action@v1.4.1
-        with:
-          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
-          accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
-          bucket: glash
-          # use your own endpoint
-          endpoint: oss-cn-hangzhou.aliyuncs.com
-          folder: ./publish
-          exclude: |
-            .git/
-            .actioninfo
-            *.sha256sum
-            
+      - name: Upload files to OSS
+        run: |
+          ossutil config \
+            -e oss-cn-hangzhou.aliyuncs.com \
+            -i "${{ secrets.ACCESS_KEY_ID }}" \
+            -k "${{ secrets.ACCESS_KEY_SECRET }}"
+
+          ossutil cp -r ./publish/ oss://glash/ \
+            --exclude ".git/*" \
+            --exclude ".actioninfo" \
+            --exclude "*.sha256sum" \
+            -f
