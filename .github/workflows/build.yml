@@ -93,9 +93,5 @@ jobs:
           test -n "$OSS_ACCESS_KEY_ID"
           test -n "$OSS_ACCESS_KEY_SECRET"
 
-          ossutil cp ./publish/ oss://glash/ \
-            --recursive \
-            --force \
-            --exclude ".*" \
-            --exclude "*/.*" \
-            --exclude "*.sha256sum"
+          ossutil cp ./publish/Country.mmdb oss://glash/Country.mmdb --force
+          ossutil cp ./publish/cn.txt oss://glash/cn.txt --force
